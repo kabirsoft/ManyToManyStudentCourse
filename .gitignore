@@ -397,4 +397,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-#testing
+# Ignore .NET Core build output
+[Oo]bj/
+[Bb]in/
