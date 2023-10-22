@@ -400,3 +400,5 @@ FodyWeavers.xsd
 # Ignore .NET Core build output
 [Oo]bj/
 [Bb]in/
+bin/Debug/net6.0/*.dll
+bin/Debug/net6.0/*.pdb
