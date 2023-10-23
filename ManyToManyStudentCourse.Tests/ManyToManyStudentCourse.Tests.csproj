@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ManyToManyStudentCourse\ManyToManyStudentCourse.csproj" />
+	<PackageReference Include="Microsoft.TestPlatform.CommunicationUtilities" Version="17.7.1-release-23418-01" />
   </ItemGroup>
 
 </Project>
