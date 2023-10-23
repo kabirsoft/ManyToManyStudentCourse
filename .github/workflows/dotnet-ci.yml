@@ -35,7 +35,7 @@ jobs:
     - name: Build
       run: dotnet build
     
-    - name: Test
-      run: dotnet test --no-build --verbosity normal --filter FullyQualifiedName~ManyToManyStudentCourse.Tests
-      
+    - name: Test      
+      run: dotnet test ManyToManyStudentCourse/ManyToManyStudentCourse.Tests/ManyToManyStudentCourse.Tests.csproj --no-build --verbosity normal
+
 
