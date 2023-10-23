@@ -36,5 +36,7 @@ jobs:
       run: dotnet build
     
     - name: Test
-      run: dotnet test --verbosity diagnostic
+      run: dotnet test ManyToManyStudentCourse/ManyToManyStudentCourse.Tests/ManyToManyStudentCourse.Tests.csproj --no-build --verbosity normal
+
+      
 
