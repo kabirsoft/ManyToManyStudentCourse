@@ -31,8 +31,11 @@ jobs:
       run: dotnet test --no-build --verbosity normal
 
     # Install Docker
-    - name: Install Docker
-      run: sudo apt-get update && sudo apt-get install -y docker.io
+    - name: Install Docker using Docker's installation script
+      run: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+
 
     # Build the Docker image
     - name: Build Docker image
