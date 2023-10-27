@@ -47,5 +47,3 @@ jobs:
 
     - name: Push Docker image
       run: docker push kabsoft/manytomanystudentcourse:latest
-
-
