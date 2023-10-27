@@ -1,12 +1,11 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-# test
 
 name: .NET
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master"]
   pull_request:
     branches: [ "master" ]
 
@@ -31,4 +30,20 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
+    # Install Docker
+    - name: Install Docker using Docker's installation script
+      run: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
 
+
+    # Build the Docker image
+    - name: Build Docker image
+      run: docker build -t kabsoft/manytomanystudentcourse:latest .
+
+    # Login to Docker Hub and push the image
+    - name: Login to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+    - name: Push Docker image
+      run: docker push kabsoft/manytomanystudentcourse:latest
