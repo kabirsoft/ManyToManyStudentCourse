@@ -26,15 +26,15 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.AzureAppService_ContainerUsername_31cc6eb9a8d14d08b6e3d24bef4b7aee }}
-          password: ${{ secrets.AzureAppService_ContainerPassword_8784f407d7134e539119f2cb598b6da3 }}
+          username: ${{ secrets.DOCKER_REGISTRY_SERVER_USERNAME }}
+          password: ${{ secrets.DOCKER_REGISTRY_SERVER_PASSWORD }}
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ secrets.AzureAppService_ContainerUsername_31cc6eb9a8d14d08b6e3d24bef4b7aee }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          tags: ${{ env.REGISTRY }}/${{ secrets.DOCKER_REGISTRY_SERVER_USERNAME}}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -52,4 +52,4 @@ jobs:
             app-name: ${{ env.APP_NAME }}
             slot-name: 'production'
             publish-profile: ${{ secrets.AzureAppService_PublishProfile_30463ef4b5f3403e91ee3b0febc1f442 }}
-            images: ${{ env.REGISTRY }}/${{ secrets.AzureAppService_ContainerUsername_31cc6eb9a8d14d08b6e3d24bef4b7aee }}/${{ env.IMAGE_NAME }}:${{ github.sha }}'
+            images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_REGISTRY_SERVER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
