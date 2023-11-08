@@ -6,7 +6,7 @@ on:
       - master
       
 env:
-  REGISTRY: kabsoftacr.azurecr.io
+  REGISTRY: kabirsoftacr.azurecr.io
   IMAGE_NAME: manytomanystucoimage
   APP_NAME: ManyToManyStudentCourse
   DOTNET_VERSION: '6.0.x'
@@ -51,5 +51,5 @@ jobs:
           with:
             app-name: ${{ env.APP_NAME }}
             slot-name: 'production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_30463ef4b5f3403e91ee3b0febc1f442 }}
+            publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
             images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_REGISTRY_SERVER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
