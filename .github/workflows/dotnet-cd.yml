@@ -8,7 +8,7 @@ on:
 env:
   REGISTRY: kabirsoftacr.azurecr.io
   IMAGE_NAME: manytomanystucoimage
-  APP_NAME: ManyToManyStudentCourse
+  APP_NAME: studentcourse1
   DOTNET_VERSION: '6.0.x'
   
 
