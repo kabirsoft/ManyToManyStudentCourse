@@ -11,3 +11,5 @@
   },
   "AllowedHosts": "*"
 }
+//note: ASPNETCORE_ENVIRONMENT = Development. It is set in VS->r.Click proj->properties->'Debug' tab
+// when update azure sql, appsettings.development.json file have to move or rename, otherwise update-database command will run appsettings.development.json file
