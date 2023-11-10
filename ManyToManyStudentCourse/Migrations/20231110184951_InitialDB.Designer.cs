@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ManyToManyStudentCourse.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231110125457_InitialDB")]
+    [Migration("20231110184951_InitialDB")]
     partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
