@@ -2,9 +2,9 @@ name: .NET ManyToManyStudentCourse
 
 on:
   push:
-    branches: [ "*"]
+    branches-ignore: [ "master"]
   pull_request:
-    branches-ignore: [ "master" ]
+    branches: [ "master" ]
 
 env: 
   NETCORE_VERSION: '6.0.x'
