@@ -17,14 +17,14 @@ namespace ManyToManyStudentCourse.Tests
     {
         private readonly Mock<IStudentService> _mockStudentService;
         private readonly Mock<ICourseService> _mockCourseService;
-            private readonly Mock<ILogger<StudentsController>> _mockLogger;
+        private readonly Mock<ILogger<StudentsController>> _mockLogger;
         private readonly StudentsController _controller;
 
         public StudentsControllerTests()
         {
             _mockStudentService = new Mock<IStudentService>();
             _mockCourseService = new Mock<ICourseService>();
-                _mockLogger = new Mock<ILogger<StudentsController>>();
+            _mockLogger = new Mock<ILogger<StudentsController>>();
             _controller = new StudentsController(_mockStudentService.Object, _mockCourseService.Object, _mockLogger.Object);
         }
 
