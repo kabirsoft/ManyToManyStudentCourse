@@ -10,7 +10,7 @@ namespace ManyToManyStudentCourse.Controllers
     public class StudentsController : Controller
     {
         public readonly IStudentService _studentService;
-        private readonly ICourseService _courseService;
+            private readonly ICourseService _courseService;
         private readonly ILogger<StudentsController> _logger;
 
         public StudentsController(IStudentService studentService, ICourseService courseService, ILogger<StudentsController> logger)

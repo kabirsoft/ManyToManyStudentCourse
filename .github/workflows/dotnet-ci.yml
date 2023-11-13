@@ -19,7 +19,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: ${{ env.NETCORE_VERSION }}   
+        dotnet-version: ${{ env.NETCORE_VERSION }}
+    
+    - name: Install dotnet-format
+      run: dotnet tool install -g dotnet-format
+  
+    - name: Check Format
+      run: dotnet-format ManyToManyStudentCourse.sln --check
 
     - name: Restore dependencies
       run: dotnet restore
