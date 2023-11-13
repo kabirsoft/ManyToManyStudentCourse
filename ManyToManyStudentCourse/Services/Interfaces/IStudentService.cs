@@ -9,7 +9,7 @@ namespace ManyToManyStudentCourse.Services.Interfaces
         Task<Student> GetStudentByIdAsync(int id);
         Task<Student> CreateStudentAsync(Student student);
         Task<Student> UpdateStudentAsync(Student student);
-        Task DeleteStudentAsync(int id);        
+        Task DeleteStudentAsync(int id);
         Task UpdateStudentCoursesAsync(int studentId, List<int> courseIds);
         Task<IEnumerable<Student>> SearchStudent(string searchBox);
 
