@@ -150,7 +150,7 @@ namespace ManyToManyStudentCourse.Tests
             Assert.IsType<NotFoundResult>(result);
         }
 
-        [Fact]       
+        [Fact]
         public async Task Edit_Post_ValidInput_RedirectsToIndex()
         {
             // Arrange

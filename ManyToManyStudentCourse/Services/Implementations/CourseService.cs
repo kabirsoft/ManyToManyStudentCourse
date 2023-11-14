@@ -11,12 +11,12 @@ namespace ManyToManyStudentCourse.Services.Implementations
         private readonly AppDbContext _context;
         public CourseService(AppDbContext context)
         {
-                _context = context;
+            _context = context;
         }
 
         public async Task<Course> CreateCourseAsync(Course course)
         {
-            if(course  == null)
+            if (course == null)
             {
                 throw new ArgumentNullException(nameof(course));
             }
@@ -45,10 +45,10 @@ namespace ManyToManyStudentCourse.Services.Implementations
         }
 
         public async Task<Course?> GetCourseWithStudentsAsync(int? courseId)
-        {          
+        {
             return await _context.Courses.Include(c => c.StudentCourse)
             .ThenInclude(sc => sc.Student)
-            .FirstOrDefaultAsync(c => c.CourseId == courseId);            
+            .FirstOrDefaultAsync(c => c.CourseId == courseId);
         }
 
         public async Task<Course> UpdateCourseAsync(Course course)

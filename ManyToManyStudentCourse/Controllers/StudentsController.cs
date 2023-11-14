@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManyToManyStudentCourse.Controllers
-{    
+{
     public class StudentsController : Controller
     {
         public readonly IStudentService _studentService;
@@ -62,7 +62,7 @@ namespace ManyToManyStudentCourse.Controllers
                         // Log or print the error for debugging
                         _logger.LogError($"Key: {modelStateKey}, Error: {error.ErrorMessage}");
                     }
-                }                
+                }
 
                 //--------- end -----------
 
@@ -71,7 +71,7 @@ namespace ManyToManyStudentCourse.Controllers
             var student = new Student
             {
                 FirstName = viewModel.FirstName,
-                LastName = viewModel.LastName,                
+                LastName = viewModel.LastName,
             };
 
             var createdStudent = await _studentService.CreateStudentAsync(student);
@@ -80,12 +80,12 @@ namespace ManyToManyStudentCourse.Controllers
 
             // Now use the selectedCourseIds list to associate the courses with the newly created student
             await _studentService.UpdateStudentCoursesAsync(createdStudent.StudentId, selectedCourseIds);
-            return RedirectToAction(nameof(Index));            
-        }        
+            return RedirectToAction(nameof(Index));
+        }
         public async Task<IActionResult> GetById(int id)
         {
             var student = await _studentService.GetStudentByIdAsync(id);
-            if(student  == null) 
+            if (student == null)
             {
                 return NotFound();
             }
@@ -113,7 +113,7 @@ namespace ManyToManyStudentCourse.Controllers
                 {
                     CourseId = c.CourseId,
                     Title = c.Title,
-                    IsSelected = student.StudentCourses.Any(sc=>sc.CourseId == c.CourseId)
+                    IsSelected = student.StudentCourses.Any(sc => sc.CourseId == c.CourseId)
                 }).ToList()
             };
             return View(viewModel);
@@ -138,8 +138,8 @@ namespace ManyToManyStudentCourse.Controllers
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 RowVersion = viewModel.RowVersion,
-            };            
-            await _studentService.UpdateStudentAsync(student);            
+            };
+            await _studentService.UpdateStudentAsync(student);
 
             var selectedCourseIds = viewModel.Courses.Where(c => c.IsSelected).Select(c => c.CourseId).ToList();
 
@@ -183,7 +183,7 @@ namespace ManyToManyStudentCourse.Controllers
         public async Task<IActionResult> SearchStudent(string searchBox)
         {
             var Students = await _studentService.SearchStudent(searchBox);
-            return View("Index",Students);
+            return View("Index", Students);
         }
     }
 }

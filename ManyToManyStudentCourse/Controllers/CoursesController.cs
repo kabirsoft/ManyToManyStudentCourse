@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManyToManyStudentCourse.Controllers
-{    
+{
     public class CoursesController : Controller
     {
         public readonly ICourseService _courseService;
@@ -40,7 +40,7 @@ namespace ManyToManyStudentCourse.Controllers
             var createdCourse = await _courseService.CreateCourseAsync(course);
             return RedirectToAction(nameof(Index));
         }
-              
+
         public async Task<IActionResult> GetById(int id)
         {
             var course = await _courseService.GetCourseByIdAsync(id);

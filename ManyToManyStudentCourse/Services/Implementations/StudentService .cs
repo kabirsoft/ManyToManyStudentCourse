@@ -18,7 +18,7 @@ namespace ManyToManyStudentCourse.Services.Implementations
 
         public async Task<Student> CreateStudentAsync(Student student)
         {
-            if(student == null)
+            if (student == null)
             {
                 _logger.LogError("Student object was null during creation.");
                 throw new ArgumentNullException(nameof(student));
@@ -46,7 +46,7 @@ namespace ManyToManyStudentCourse.Services.Implementations
         public async Task<Student> GetStudentByIdAsync(int id)
         {
             return await _context.Students.FindAsync(id);
-        }      
+        }
 
         public async Task<Student> UpdateStudentAsync(Student student)
         {
@@ -55,7 +55,7 @@ namespace ManyToManyStudentCourse.Services.Implementations
             _context.Students.Update(student);
             await _context.SaveChangesAsync();
             return student;
-        }       
+        }
 
         public async Task UpdateStudentCoursesAsync(int studentId, List<int> selectedCourseIds)
         {
@@ -74,7 +74,7 @@ namespace ManyToManyStudentCourse.Services.Implementations
             }
             await _context.SaveChangesAsync();
         }
-        
+
         public async Task<IEnumerable<Student>> SearchStudent(string searchBox)
         {
             var students = _context.Students
